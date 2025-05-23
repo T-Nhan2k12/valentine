@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Valentine Lãng Mạn</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffc0cb;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #8b005d;
+      z-index: 10;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+      color: #e60073;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    .fade-text {
+      font-size: 1.3em;
+      opacity: 0;
+      animation: fadeIn 3s ease-in-out forwards;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: fall linear infinite;
+      z-index: 0;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes fall {
+      0% { top: -10px; opacity: 1; }
+      100% { top: 100vh; opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Happy Valentine! 💖</h1>
+    <p class="fade-text">Chúc người anh yêu thương một ngày Valentine tràn đầy hạnh phúc và yêu thương! ❤️<br><br>
+      Cảm ơn em vì đã xuất hiện trong cuộc đời anh, là người mang đến nụ cười, niềm vui và những khoảnh khắc ngọt ngào.<br><br>
+      Mong rằng chúng ta sẽ mãi bên nhau, cùng nhau viết nên những câu chuyện tình yêu đẹp nhất.</p>
+  </div>
+
+  <script>
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 4 + Math.random() * 3 + 's';
+      heart.style.opacity = Math.random() * 0.8 + 0.2;
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 7000);
+    }, 200);
+  </script>
+</body>
+</html>
+
+
